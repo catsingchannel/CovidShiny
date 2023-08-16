@@ -29,9 +29,10 @@ git clone https://github.com/MSQ-123/CovidShiny.git
 # First install Bioconductor
 if (!requireNamespace("BiocManager", quietly = TRUE))
     install.packages("BiocManager")
-BiocManager::install(version = "3.10")
+BiocManager::install(version = "3.17")
 
 BiocManager::install("Biostrings")
+BiocManager::install("rprimer")
 
 #other packages are available through CRAN:
 install.packages("seqinr")
