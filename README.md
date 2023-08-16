@@ -5,7 +5,7 @@ Managing COVID-19 mutation information.
 
 ### Requirements
 
-* R: https://www.r-project.org/ v3.6.2+
+* R: https://www.r-project.org/ v4.1.0+
 * RStudio: https://rstudio.com/products/rstudio/download
 * Shiny Server: https://rstudio.com/products/shiny/download-server (only required for deploying **CovidShiny** on web linux server)
 
