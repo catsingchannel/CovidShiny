@@ -2,7 +2,6 @@
 G
 GH
 GK
-GKA
 GR
 GRA
 GRY
@@ -11,5 +10,4 @@ L
 null
 O
 S
-V
 all

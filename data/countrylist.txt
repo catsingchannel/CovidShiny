@@ -1,90 +1,56 @@
-Asia
 Europe
-Oceania
+Asia
 North America
 South America
+Oceania
 Africa
-Afghanistan
-Albania
 Algeria
 American Samoa
 Andorra
-Angola
-Anguilla
-Antigua and Barbuda
 Argentina
-Armenia
 Aruba
 Australia
 Austria
-Azerbaijan
-Bahrain
 Bangladesh
 Barbados
-Belarus
 Belgium
-Belize
-Benin
-Bermuda
-Bhutan
-Bolivia
 Bonaire
-Bosnia and Herzegovina
 Botswana
 Brazil
 Brunei
 Bulgaria
 Burkina Faso
-Burundi
-Cabo Verde
 Cambodia
-Cameroon
 Canada
 Canary Islands
 Cayman Islands
 Central African Republic
-Chad
 Chile
 China
 Colombia
-Comoros
 Costa Rica
 Cote d'Ivoire
 Crimea
 Croatia
 Curacao
-Cyprus
 Czech Republic
-Democratic Republic of the Congo
 Denmark
-Djibouti
 Dominican Republic
 Ecuador
 Egypt
-El Salvador
-Equatorial Guinea
 Estonia
 Eswatini
-Ethiopia
-Faroe Islands
 Finland
 France
-French Guiana
-French Polynesia
-Gabon
 Gambia
 Georgia
 Germany
 Ghana
-Gibraltar
 Greece
 Guadeloupe
 Guam
 Guatemala
 Guinea
-Guinea-Bissau
-Haiti
-Honduras
 Hong Kong
 Hungary
 Iceland
@@ -97,34 +63,19 @@ Israel
 Italy
 Jamaica
 Japan
-Jordan
 Kazakhstan
 Kenya
-Kosovo
 Kuwait
-Kyrgyzstan
 Laos
-Latvia
 Lebanon
-Libya
 Liechtenstein
 Lithuania
 Luxembourg
-Madagascar
-Malawi
 Malaysia
-Maldives
-Mali
-Malta
-Marshall Islands
 Martinique
-Mauritania
 Mauritius
-Mayotte
 Mexico
 Micronesia
-Moldova
-Monaco
 Mongolia
 Montenegro
 Morocco
@@ -135,15 +86,10 @@ Nepal
 Netherlands
 New Zealand
 Nicaragua
-Niger
-Nigeria
-North Macedonia
 Northern Mariana Islands
 Norway
 Oman
 Pakistan
-Palau
-Palestine
 Panama
 Papua New Guinea
 Paraguay
@@ -153,33 +99,22 @@ Poland
 Portugal
 Puerto Rico
 Qatar
-Republic of the Congo
 Reunion
 Romania
 Russia
-Rwanda
 Saint Lucia
-Saint Martin
-Saint Vincent and the Grenadines
-Sao Tome and Principe
 Saudi Arabia
-Senegal
 Serbia
-Seychelles
-Sierra Leone
 Singapore
 Sint Maarten
 Slovakia
 Slovenia
 Solomon Islands
-Somalia
 South Africa
 South Korea
-South Sudan
 Spain
 Sri Lanka
 Sudan
-Suriname
 Sweden
 Switzerland
 Syria
@@ -190,18 +125,12 @@ Togo
 Trinidad and Tobago
 Tunisia
 Turkey
-U.S. Virgin Islands
 Uganda
 Ukraine
-United Arab Emirates
 United Kingdom
-Uruguay
 USA
-Uzbekistan
-Vanuatu
 Venezuela
 Vietnam
-Wallis and Futuna Islands
 Zambia
 Zimbabwe
 global

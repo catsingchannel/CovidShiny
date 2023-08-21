@@ -76,7 +76,7 @@ shiny::runApp(launch.browser = TRUE)
 ```
 $ cd /srv/shiny-server
 git clone https://github.com/MSQ-123/CovidShiny.git
-# Or clone it locally and upload the directory to /srv/shiny-server using scp or other tools 
+# Or clone it locally and upload the directory to /srv/shiny-server using scp or other tools
 ```
 
 
@@ -122,3 +122,40 @@ $ start shiny-server
 ```
 
 Now you can access the **CovidShiny** app at http://IPAddressOfYourServer:3838/CovidShiny.
+
+### Process and upload GISAID samples to your local database
+
+#### Requirements:
+
+* This pipeline only available in UNIX environment
+* seqkit: https://bioinf.shenwei.me/seqkit/download/
+* NUCmer(NUCleotide MUMmer): https://mummer4.github.io/
+
+If you need to compiie the snp-process program, make sure you have the cmake which version equal or higher than 3.26.3
+
+1.Complie the snp-process program
+
+The source code is located on (app directory)/process/snp-process_source
+
+Change your directory into this location and run:
+
+```
+$ mkdir build
+
+$ cd ./build
+
+$ cmake ..
+
+$ make
+```
+Then copy the generated snp-process file to process directory
+
+2.Process and upload GISAID data.
+
+For mutation profile generation and upload, Download the sequence data in input for Augur pipeline format and put downloaded tar files into (app directory)/process directory, Then run this shell command:
+
+```
+$ ./process.sh
+```
+
+It may take a long times to upload data if your have a large database or upload large amount of samples.
