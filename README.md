@@ -19,11 +19,16 @@ Managing COVID-19 mutation information.
 git clone https://github.com/MSQ-123/CovidShiny.git
 ```
 
-> The repository is large so it may need some time to finish it.
+2. Download Mutation database: https://drive.google.com/uc?id=1L4377W2qw5g6TTt8_yKgjt8Fhgr5K5SI&export=download
 
-2.Open `CovidShiny.Rproj`
+> This database is a subset of online website which contained GISAID samples submitted from 2022-07-25 to 2023-07-25
+> The database is large so it may need some time to finish it.
 
-3.Install packages. In the RStudio console, run:
+Please place the .sqlite file to (your app directory path)/data directory after downloaded
+
+3.Open `CovidShiny.Rproj`
+
+4.Install packages. In the RStudio console, run:
 
 ```
 # First install Bioconductor
@@ -62,7 +67,7 @@ install.packages("shinyWidgets")
 
 > This may take some time to complete.
 
-4.Start tha app by running
+5.Start tha app by running
 
 ```
 shiny::runApp(launch.browser = TRUE)
