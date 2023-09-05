@@ -16,7 +16,7 @@ Managing COVID-19 mutation information.
 1.Clone this repository
 
 ```
-git clone https://github.com/MSQ-123/CovidShiny.git
+git clone https://github.com/catsingchannel/CovidShiny.git
 ```
 
 2. Download Mutation database: https://drive.google.com/uc?id=1L4377W2qw5g6TTt8_yKgjt8Fhgr5K5SI&export=download
@@ -80,7 +80,7 @@ shiny::runApp(launch.browser = TRUE)
 
 ```
 $ cd /srv/shiny-server
-git clone https://github.com/MSQ-123/CovidShiny.git
+git clone https://github.com/catsingchannel/CovidShiny.git
 # Or clone it locally and upload the directory to /srv/shiny-server using scp or other tools
 ```
 
