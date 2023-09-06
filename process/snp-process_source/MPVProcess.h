@@ -19,7 +19,6 @@
 
 class Row {
 private:
-	//std::string meta_;
 	std::string refpos_,
 		refvar_,
 		qvar_,
@@ -220,11 +219,7 @@ public:
 	}
 
 	ThreadPool(const ThreadPool& t) = delete;
-	//	thread_count_total(t.thread_count_total),
-	//	threads(std::make_unique<std::thread[]>(t.thread_count_total)),
-	//	q_latch_(),
-	//	cv_(),
-	//	done_() {}
+	ThreadPool(ThreadPool&& t) = delete;
 
 	~ThreadPool() {
 		running = false;
@@ -968,9 +963,7 @@ public:
 		path = get_current_dir_name();
 		std::string gff(path);
 		std::string ref(path);
-		//std::string gff("C:\\Users\\HP\\source\\repos\\CMakeMPVP\\gff_.tsv");
 		gff.append("/gff_.tsv");
-		//std::string ref("C:\\Users\\HP\\source\\repos\\CMakeMPVP\\ref_.fasta");
 		ref.append("/ref_.fasta");
 		file_io_.ReadMeta(gff, ref, &annot_, &refseq);
 		annot_.UTR5_ = annot_.starts_[0];
@@ -991,18 +984,13 @@ public:
 		std::vector<Row> reads_;
 		std::cout<<"reading snps"<<std::endl;
 		file_io_.ReadSnpParallel(path, &reads_, &pool_);
-		//file_io_.ReadSnp(path, &reads_);
 		partition(reads_);
 		
 		std::cout<<"start merge and annotation"<<std::endl;
-		//auto it = ids.find("hCoV-19/Denmark/DCGC-561930/2022");
-		//Group* nucmer = &(it->second);
-		//process_(nucmer, annot_, refseq);
 
 		for (auto it = ids.begin(); it != ids.end();) {
 			Group* nucmer = &(it->second);
 			pool_.push(process_, nucmer, annot_, refseq);
-			//process_(nucmer, annot_, refseq);
 			it++;
 		}
 
