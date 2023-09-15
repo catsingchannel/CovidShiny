@@ -55,6 +55,34 @@ obtain_simu_seq <- function(nucmerr, refseq){
   lrf
 }
 
+oligo_filter <- function(oligos){
+  tmlimit <- c(50, 60)
+  tmstep <- 0.5
+  gclimit <- c(0.4, 0.6)
+  gcstep <- 0.01
+  oligo_num <- 500
+  
+  if(nrow(oligos[oligos$score == min(oligos$score),]) > 200){
+    oligos <- oligos[oligos$score == min(oligos$score),]
+  }
+  
+  while(nrow(oligos) > oligo_num){
+    tmlimit[1] <- tmlimit[1] + tmstep
+    tmlimit[2] <- tmlimit[2] - tmstep
+    oligos <- oligos[oligos$tmMean >= tmlimit[1] & oligos$tmMean <= tmlimit[2],]
+    
+    if(nrow(oligos) <= oligo_num){
+      break
+    }
+    
+    gclimit[1] <- gclimit[1] + gcstep
+    gclimit[2] <- gclimit[2] - gcstep
+    oligos <- oligos[oligos$gcContentMean >= gclimit[1] & oligos$gcContentMean <= gclimit[2],]
+  }
+  
+  oligos
+}
+
 obtain_assays <- function(lineage = 'all', country='global', target, date){
   nucmerr <- dbGetQuery(dbcon, 'SELECT ID, country, region, lineage FROM meta WHERE time BETWEEN ? AND ?', params = c(date[1], date[2]))
   
@@ -89,6 +117,10 @@ obtain_assays <- function(lineage = 'all', country='global', target, date){
     }
   }
   
+  if(length(seqs) < 2){
+    seqs <- c(seqs, as.character(refseq))
+  }
+  
   seqs <- seqs[nzchar(seqs)]
   seqs <- DNAStringSet(seqs, start = target[1], end = target[length(target)])
   seqs <- msa(seqs)
@@ -99,6 +131,10 @@ obtain_assays <- function(lineage = 'all', country='global', target, date){
                          gcPrimer = c(0.4, 0.6), 
                          tmPrimer = c(50, 60), 
                          lengthProbe = c(15, 30))
+  if(nrow(oligos) > 500){
+    oligos <- oligo_filter(oligos)
+  }
+  
   myassays <- designAssays(oligos, 
                          length = c(90, 150),
                          tmDifferencePrimers = 5)
