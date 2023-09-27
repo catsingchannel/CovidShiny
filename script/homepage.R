@@ -65,6 +65,8 @@ homepage <- dashboardPage(
             in protein structure of SARS-CoV-2 N and S protein.
             You can find some example figures that these modules can generate in 
             the manuscript. The SARS-CoV-2 sample sequencs are retrieved from GISAID platform(", htmltools::a(em("Elbe et al. (2017)"), href = "https://doi.org/10.1002/gch2.1018", target = "_blank"), ")."), 
+          p(img(src = "img/sfg1.png", height = 380, wudth = 810), align = "center"),
+
           fluidRow(
             box(solidHeader = T,
               width = 6,
@@ -73,7 +75,6 @@ homepage <- dashboardPage(
               h5("This module provides an overview of SARS-CoV-2 mutation features and displays mutation statistics in terms of geographical distribution, mutation hotspots, etc."),
               p(img(src = "img/stats.png", height = 170, width = 270), align = "center")
               
-              
             ),
             box(solidHeader = T,
               width = 6,
@@ -81,7 +82,6 @@ homepage <- dashboardPage(
               title = strong("SNP&Protein profile"),
               h5("This module displays SNPs and proteins mutation profile in SARS-CoV-2 whole genome as heatmap or counts figure."),
               p(img(src = "img/snp.png", height = 170, width = 270), align = "center")
-              
               
             )
           ),

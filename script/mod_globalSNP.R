@@ -14,16 +14,16 @@ mod_globalSNP_ui <- function(id){
                                choices = c("heatmap",
                                            "count"
                                ),
-                               selected = "heatmap"),
+                               selected = "count"),
                    selectInput(ns("country_user"), #下拉框
                                label = "Select the geographic location to present",
                                choices = countrylist,
                                selected = "global"),
-                   sliderInput(ns("top"), "Number of SNPs to present:", 1, 26, 4),
+                   sliderInput(ns("top"), "Number of SNPs to present:", 1, 25, 8),
                    
                    dateRangeInput(ns("daterange"),
                                   "Select date range:",
-                                  start = date_limit[2] - 14,
+                                  start = date_limit[2] - 21,
                                   end = date_limit[2],
                                   min = "2019-12-01",
                                   max = date_limit[2]),
@@ -92,12 +92,12 @@ mod_globalSNP_ui <- function(id){
                                       choices = c("heatmap",
                                                   "count"
                                       ),
-                                      selected = "heatmap"),
+                                      selected = "count"),
                           selectInput(ns("country"), #下拉框
                                       label = "Select the geographic location to present",
                                       choices = countrylist,
                                       selected = "global"),
-                          sliderInput(ns("Top_mutPro"),"Number of protein mutations:", 1, 20, 10),
+                          sliderInput(ns("Top_mutPro"),"Number of protein mutations:", 1, 30, 10),
                           
                           dateRangeInput(ns("daterange_2"),
                                          "Select date range:",

@@ -43,7 +43,7 @@ AssayMutRatio <- function(nucmerr = nucmerr, assays = assays, totalsample = tota
               geom_vline(aes(xintercept=R2),color="red", linetype="dashed", size=0.5)+
               geom_vline(aes(xintercept=P1),color="gray", linetype="solid", size=0.5)+
               geom_vline(aes(xintercept=P2),color="gray", linetype="solid", size=0.5)+
-              theme(axis.text.x = element_text(angle=90, hjust=1, vjust=.5))+
+              theme(axis.text.x = element_text(angle=45, hjust=1, vjust=1))+
               labs(x="SARS-CoV-2 Genomic position",
                    title=paste0(assays$Assay[i], "-",country, "-Total Mutant Samples:", TMN,"/", totalcountry, "-Mutation_Ratio:",Mutation_Ratio,"%")) 
             print(p)#for ggplot2 figure, source will not present the figure!
@@ -91,9 +91,13 @@ AssayMutRatio <- function(nucmerr = nucmerr, assays = assays, totalsample = tota
               geom_vline(aes(xintercept=R2),color="red", linetype="dashed", size=0.5)+
               geom_vline(aes(xintercept=P1),color="gray", linetype="solid", size=0.5)+
               geom_vline(aes(xintercept=P2),color="gray", linetype="solid", size=0.5)+
-              theme(axis.text.x = element_text(angle=90, hjust=1, vjust=.5))+
-              labs(x="SARS-CoV-2 Genomic position",
-                   title=paste0(assays$Assay[i],"-Total Mutant Samples:", TMN,"/Mutation_Ratio:",Mutation_Ratio,"%")) 
+              theme(axis.text.x = element_text(angle=45, hjust=1, vjust=1))+
+              labs(x="SARS-CoV-2 Genomic position(nt)",
+                   title=paste0(assays$Assay[i],"-Total Mutant Samples:", TMN,"/Mutation_Ratio:",Mutation_Ratio,"%"))
+
+            if(length(unique(sample)) > 25){
+                p <- p + theme(axis.text.y = element_blank(), axis.ticks.y = element_blank(), panel.grid = element_blank())
+            }
             print(p)#for ggplot2 figure, source will not present the figure!
           }
         }
@@ -214,18 +218,18 @@ AssayMutRatio <- function(nucmerr = nucmerr, assays = assays, totalsample = tota
           sub_nucmer<-subset(nucmerr, nucmerr$rpos %in% c(F1:F2,P1:P2,R1:R2))
 
           TMN<- length(unique(sub_nucmer$ID))
-          Mutation_Ratio<- round(TMN/totalsample*100,5)
+          Mutation_Ratio<- round(TMN/totalsample*100,3)
           assays[i,"Mutation_Ratio"]<- Mutation_Ratio}
         order_assay=assays[order(assays$Mutation_Ratio),]$Assay
         
         assays$Assay=factor(assays$Assay, levels=order_assay)
         p<- ggplot(data=assays,aes(x=assays$Assay,y=assays$Mutation_Ratio,fill=assays$Assay))+
           geom_bar(stat="identity")+
-          geom_text(aes(label=assays$Mutation_Ratio),vjust=0,angle = 90)+
+          geom_text(aes(label=assays$Mutation_Ratio),vjust=1, hjust = 1,angle = 45)+
           theme_bw()+
           theme(axis.text.x = element_text(angle = 45,hjust = 1,size=12, face="bold"),
                 axis.text.y = element_text(size=12,face="bold"))+
-          theme(plot.margin = unit(c(1,1,1,1), "cm"))+
+          theme(plot.margin = unit(c(1,1,1,1), "cm"), legend.position = 'none')+
           scale_y_sqrt()+labs(x = "Assays", y = "Mutation Ratio%", title = "Mutation Ratio in global")
         scale_y_continuous(trans='log10')
         print(p)

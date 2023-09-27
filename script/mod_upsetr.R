@@ -6,7 +6,7 @@ mod_upsetr_ui <- function(id){
     sidebarPanel(
       width = 4, 
       h3(strong("UpsetR plot for proteins", style = "color:black")),
-      h5("In this panel, all SARS-CoV-2 mutation data regardless of sequence quality (complete, high coverage) are processed in order to track protein variants.",
+      h5("In this panel, Mutation combinations in selected gene of SARS-CoV-2 with top protein mutations which have the most recorded samples are displayed in the form of UpsetR plot. Users can select date range, geographic locations or lineage of interest to monitor the distribution of these mutation combinations",
          htmltools::a("Reference sequence: NC_045512.29(SARS-nCoV-19)", href = "https://www.ncbi.nlm.nih.gov/nuccore/NC_045512.2/")),
       title = "", status = "warning", solidHeader = TRUE,
       

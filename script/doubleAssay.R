@@ -51,9 +51,13 @@ doubleAssay<- function(nucmerr = nucmerr, assay = assay, assay1 = assay1, assay2
       geom_vline(aes(xintercept=R2),color="red", linetype="dashed", size=0.5)+
       geom_vline(aes(xintercept=P1),color="gray", linetype="solid", size=0.5)+
       geom_vline(aes(xintercept=P2),color="gray", linetype="solid", size=0.5)+
-      theme(axis.text.x = element_text(angle=90, hjust=1, vjust=.5))+
+      theme(axis.text.x = element_text(angle=45, hjust=1, vjust=1))+
       labs(x="SARS-CoV-2 Genomic position",
            title=paste0(assay1,"-Co-occurring Mutant Samples:", co_occur,"/co_Mutation_Ratio:",Mutation_Ratio1,"%"))#+
+
+    if(length(unique(sub_nucmer$ID)) > 25) {
+        plist[[1]] <- plist[[1]] + theme(panel.grid = element_blank(), axis.text.y = element_blank(), axis.ticks.y = element_blank())
+    }
 
     rpos.y <- sub_nucmer$rpos.y
     M_type.y<- sub_nucmer$M_type.y
@@ -67,9 +71,13 @@ doubleAssay<- function(nucmerr = nucmerr, assay = assay, assay1 = assay1, assay2
       geom_vline(aes(xintercept=r2),color="red", linetype="dashed", size=0.5)+
       geom_vline(aes(xintercept=p1),color="gray", linetype="solid", size=0.5)+
       geom_vline(aes(xintercept=p2),color="gray", linetype="solid", size=0.5)+
-      theme(axis.text.x = element_text(angle=90, hjust=1, vjust=.5))+
+      theme(axis.text.x = element_text(angle=45, hjust=1, vjust=1))+
       labs(x="SARS-CoV-2 Genomic position",
            title=paste0(assay2,"-Co-occurring Mutant Samples:", co_occur,"/co_Mutation_Ratio:",Mutation_Ratio2,"%"))#+
+
+    if(length(unique(sub_nucmer$ID)) > 25) {
+        plist[[2]] <- plist[[2]] + theme(panel.grid = element_blank(), axis.text.y = element_blank(), axis.ticks.y = element_blank())
+    }
 
     p<- ggarrange(plist[[1]],plist[[2]], ncol=1,nrow=2,labels=c("A","B"))
     if(is.null(outdir) == TRUE){

@@ -34,9 +34,7 @@ LastfiveNrMutation <- function(nucmerr = nucmerr, assays = assays, totalsample =
           scale_x_continuous(breaks=seq(F1,R2,2),limits =c(F1,R2))+
           labs(x="SARS-CoV-2 Genomic position", y="samples",
                title=paste0(assays$Assay[i],"(Samples:", TMN,"/Ratio:",Mutation_Ratio,"%)"))+
-          theme(axis.text.x = element_text(angle=90, hjust=1, vjust=.5),
-                axis.text.y=element_blank(),
-                axis.title.y=element_blank(),
+          theme(axis.text.x = element_text(angle=45, hjust=1, vjust=1),
                 plot.title = element_text(size=8),
                 legend.position="none")+
           geom_vline(aes(xintercept=F1),color="blue", linetype="dashed", size=0.5)+
@@ -45,8 +43,13 @@ LastfiveNrMutation <- function(nucmerr = nucmerr, assays = assays, totalsample =
           geom_vline(aes(xintercept=R2),color="red", linetype="dashed", size=0.5)+
           geom_vline(aes(xintercept=F2five),color="gray", linetype="dashed", size=0.5)+
           geom_vline(aes(xintercept=R1five),color="gray", linetype="dashed", size=0.5)
+
+        if(TMN > 25){
+          p <- p + theme(panel.grid = element_blank(), axis.text.y = element_blank(), axis.ticks.y = element_blank())
+        }
+
         print(p)
       }
-      }
+    }
   }
 }

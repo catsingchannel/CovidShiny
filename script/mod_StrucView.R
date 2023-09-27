@@ -35,7 +35,7 @@ mod_StrucView_ui <- function(id){
       br(),
       h5("The structure in left shows the wild-type structure and the right one shows the mutated structure built by homology modeling via SWISS-MODEL"),
       h5("The blue region is the C terminal domain(CTD), and the orange region is the N terminal domain(NTD) of this protein. mutated position is marked by red"),
-      h5("Limited by the modeling efficiency, the structure for top mutations in recent months and custom mutations are not provided, WT structure will be displayed in right"),
+      h5("Limited by the computility, the 3D structure for top mutations in recent months and custom mutations are not provided, Wildtype structure with correspond mutations' annotation will be displayed in right instead"),
       
       br(),
       h5(),

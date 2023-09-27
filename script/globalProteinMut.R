@@ -45,10 +45,13 @@ globalProteinMut <- function(covid_annot = covid_annot, outdir = NULL, figure_Ty
         sample <- covid_annot$ID
         pro_variant <- covid_annot$pro_variant
         p <- ggplot(data=covid_annot,aes(x=refpos, y=ID))+
-          geom_point(size=0.001, alpha=2/3,aes(color=pro_variant))+
+          geom_point(size=0.01, alpha=2/3,aes(color=pro_variant))+
           theme_bw()+
           labs(x="SARS-CoV-2 Genomic position")
-        
+
+        if(length(unique(sample)) > 25){
+          p <- p + theme(axis.text.y = element_blank(), axis.ticks.y = element_blank(), panel.grid = element_blank())
+        }
       }
       if(figure_Type == "count"){
         refpos <- covid_annot$refpos

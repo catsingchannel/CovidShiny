@@ -6,7 +6,8 @@ mod_assayheatmap_ui <- function(id){
                   sidebarPanel(
                     width = 4, #height = 503,
                     h3(strong("Evaluate sensitivity of different RT-PCR assays", style = "color:black")),
-                   
+                    h5("By using well-established assays information to detect mutations in specific SARS-CoV-2 genomic sites, users could predict whether RT-PCR primers/probes bind to mutation 'hotspots', which may impact assays efficiency. Series of figures presenting the mutation profile using a single assay (demo assay) are shown.
+                       Users can submit their assays by giving the primer & probe sequences. Also, you can change the geographic location parameter to see your assay performance in other area. Please make sure that your sequences are not multi-mapping before you submit. ", htmltools::a("Reference sequence: NC_045512.2", href = "https://www.ncbi.nlm.nih.gov/nuccore/NC_045512.2/")),
                     title = "Controls for global profile", status = "warning", solidHeader = TRUE,
                     
                     checkboxInput(ns("upload_primer"), "Input Your primers?", FALSE),
@@ -70,8 +71,6 @@ mod_assayheatmap_ui <- function(id){
                                      max = date_limit[2]),
                       actionButton(ns("default_submit"), strong("Submit"), styleclass = "success")
                     ),
-                    h5("By using well-established assays information to detect mutations in specific SARS-CoV-2 genomic sites, users could predict whether RT-PCR primers/probes bind to mutation 'hotspots', which may impact assays efficiency. Series of figures presenting the mutation profile using a single assay (demo assay) are shown.
-                       Users can submit their assays by giving the primer & probe sequences. Also, you can change the geographic location parameter to see your assay performance in other area. Please make sure that your sequences are not multi-mapping before you submit. ", htmltools::a("Reference sequence: NC_045512.2", href = "https://www.ncbi.nlm.nih.gov/nuccore/NC_045512.2/")),
                   ),
                   mainPanel(
                     #h2(strong("Plot assay heatmap")),

@@ -22,9 +22,9 @@ git clone https://github.com/catsingchannel/CovidShiny.git
 2. Download Mutation database: https://drive.google.com/uc?id=1L4377W2qw5g6TTt8_yKgjt8Fhgr5K5SI&export=download
 
 > This database is a subset of online website which contained GISAID samples submitted from 2022-07-25 to 2023-07-25
-> The database is large so it may need some time to finish it.
+> The database is large so it may need some time to download it.
 
-Please place the .sqlite file to (your app directory path)/data directory after downloaded
+Please place the .sqlite file to '(your app directory path)/data' directory after downloaded
 
 3.Open `CovidShiny.Rproj`
 
@@ -61,8 +61,14 @@ install.packages("DT")
 install.packages("shinythemes")
 install.packages("plotly")
 install.packages("dashboardthemes")
-install.packages("VennDiagram")
-install.packages("shinyWidgets")
+install.packages("venn")
+install.packages("DBI")
+install.packages("glue")
+install.packages("UpSetR")
+install.packages("NGLVieweR")
+install.packages("ggridges")
+install.packages("RColorBrewer")
+install.packages("msa")
 ```
 
 > This may take some time to complete.
@@ -136,7 +142,7 @@ Now you can access the **CovidShiny** app at http://IPAddressOfYourServer:3838/C
 * seqkit: https://bioinf.shenwei.me/seqkit/download/
 * NUCmer(NUCleotide MUMmer): https://mummer4.github.io/
 
-If you need to compiie the snp-process program, make sure you have the cmake which version equal or higher than 3.26.3
+If you need to compile the snp-process program, make sure you have the cmake which version equal or higher than 3.26.3
 
 1.Complie the snp-process program
 

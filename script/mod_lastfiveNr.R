@@ -8,8 +8,8 @@ mod_lastfiveNr_ui <- function(id){
       
       width = 4, #height = 503,
       h3(strong("Evaluate sensitivity of different RT-PCR primers", style = "color:black")),
-      h5("The global profile is for using the well established assays information to detect mutations in different SARS-CoV-2 genomic sites. The output can be series of figures presenting the mutation profile using a specific assay.", htmltools::a("Reference sequence: NC_045512.2", href = "https://www.ncbi.nlm.nih.gov/nuccore/NC_045512.2/")),
-      title = "Controls for global profile", status = "warning", solidHeader = TRUE,
+      h5("The Last Five Nucleotides is for using the well established assays information to detect mutations in different SARS-CoV-2 genomic sites specified for the last 5 nucleotides in 3'end of primers, which is considered to have significant impact on primer binding ability. The output are figures presenting the mutation profile using a specific assay.", htmltools::a("Reference sequence: NC_045512.2", href = "https://www.ncbi.nlm.nih.gov/nuccore/NC_045512.2/")),
+      title = "Controls for profile", status = "warning", solidHeader = TRUE,
 
       checkboxInput(ns("upload_primer"), "Input Your primers?", FALSE),
       dateRangeInput(ns("daterange"),

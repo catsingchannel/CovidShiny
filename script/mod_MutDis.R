@@ -1,6 +1,5 @@
 mod_MutDis_ui <- function(id){
   ns <- NS(id)
-  # Second tab content height = 420
   navbarPage(title = "", 
             tabPanel("Mutation density",icon = icon("chart-line"),
                      tagList(
@@ -41,9 +40,10 @@ mod_MutDis_ui <- function(id){
                          width = 4,
                          h3(strong("Basic descriptions for the mutational events", style = "color:black")),
                          h5("In this section, we displayed some mutation properties of SARS-CoV-2, including 
-                         average mutations per sample, barplot of different nucleotide variants, barplot of 
-                         protein mutations. etc., based on annotation of all mutations from the recorded 
-                           samples on GISAID platform."),
+                         average mutations per sample(MutPerSample), counts of different mutation classes(VarClasses),
+                         counts of different mutation types(VarType), barplot of different nucleotide variants(NucleoEvents),
+                         and barplot of protein mutations(ProEvents), based on annotation of all mutations from the recorded 
+                         samples on GISAID platform."),
                          br(),
                          selectInput(ns("figures"), #下拉框
                                      label = "Select the figure type for display",
@@ -57,7 +57,7 @@ mod_MutDis_ui <- function(id){
                          br(),
                          br(),
                          br(),
-                         h3(strong("Basic descriptions for the mutational events(protein)", style = "color:black")),
+                         h3(strong("Basic descriptions for the mutational events for selected protein", style = "color:black")),
                          br(),
                          selectInput(ns("protein"), #下拉框
                                      label = "Select the protein name for display",
@@ -140,13 +140,14 @@ mod_MutDis_server <- function(input, output, session){
     mutpos <- input$start:input$end
     rpos<- temp[temp$country %in% Top_country & temp$rpos %in% mutpos,]$rpos
     ggplot(data=temp[temp$country %in% Top_country & temp$rpos %in% mutpos,],aes(x=rpos, y = country, fill = ..density..))+
-      geom_density_ridges_gradient(scale = 3, rel_min_height = 0.00,size = 0.3) + 
+      geom_density_ridges_gradient(scale = 3, rel_min_height = 0.00, size = 0.3, labels = scales::comma) + 
       scale_fill_gradientn(colours = colorRampPalette(rev(brewer.pal(11,'Spectral')))(32))+
       theme_bw()+
       theme(panel.grid.major.x = element_blank(),
             panel.grid.minor.x = element_blank(),
             panel.grid.major.y = element_blank(),
-            panel.grid.minor.y = element_blank())
+            panel.grid.minor.y = element_blank())+
+      labs(x = "SARS-CoV-2 Genome Position (nt)")
   })
   
   output$approvalBox <- renderInfoBox({
@@ -224,7 +225,7 @@ mod_MutDis_server <- function(input, output, session){
              theme_bw()+
              theme(axis.text.x = element_text(angle = 45,hjust = 1,size=12, face="bold"),
                    axis.text.y = element_text(size=12,face="bold"))+
-        labs(x = "Genes in SARS-CoV-2 genome", y = "Nutation counts per base")
+        labs(x = "Genes in SARS-CoV-2 genome", y = "Mutation counts per base")
     })
     
     output$plot9 <- renderPlot({
