@@ -1,5 +1,6 @@
 # CovidShiny
 Managing COVID-19 mutation information.
+![sfg1](https://github.com/catsingchannel/CovidShiny/assets/88886285/6761e649-6c07-4676-9886-1a663f691428)
 
 ## **Install**
 
